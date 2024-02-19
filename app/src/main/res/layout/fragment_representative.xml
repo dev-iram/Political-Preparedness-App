@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.android.politicalpreparedness.representative.RepresentativeViewModel" />
+
+        <variable
+            name="address"
+            type="com.example.android.politicalpreparedness.network.models.Address" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/fragment_representative_scene">
+
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:padding="20dp"
+         android:id="@+id/input_section">
+
+         <TextView
+             android:id="@+id/representative_search"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/representative_search_text"
+             android:layout_marginTop="20dp"
+             android:layout_marginBottom="20dp"
+             android:fontFamily="@font/manrope_light"
+             android:textStyle="bold"
+             android:textColor="@color/colorAccent"
+             android:textSize="25sp"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintBottom_toTopOf="@id/address_line_1_input" />
+
+        <EditText
+            android:id="@+id/address_line_1_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/address_line_1_text"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/manrope_light"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:inputType="textPostalAddress"
+            android:text="@={address.line1}"
+            android:textColorHint="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/representative_search" />
+
+        <EditText
+            android:id="@+id/address_line_2_input"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/address_line_2_text"
+            android:textColorHint="@color/colorPrimary"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/manrope_light"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:inputType="textPostalAddress"
+            android:text="@={address.line2}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/address_line_1_input"
+            android:autofillHints="" />
+
+        <EditText
+            android:id="@+id/city_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/city_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/manrope_light"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="16sp"
+            android:inputType="textPostalAddress"
+            android:text="@={address.city}"
+            app:layout_constraintEnd_toStartOf="@id/state_select"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/address_line_2_input" />
+
+        <Spinner
+            android:id="@+id/state_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:entries="@array/states"
+            android:inputType="textPostalAddress"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/manrope_light"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/city_input"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/city_input"
+            app:layout_constraintTop_toTopOf="@id/city_input" />
+
+        <TextView
+            android:id="@+id/state_temp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@={address.state}"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/manrope_light"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="20sp"
+            android:visibility="gone"
+            motion:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/zipcode_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/zipcode"
+            android:inputType="number"
+            android:maxLength="5"
+            android:text="@={address.zip}"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/manrope_light"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/city_input"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/city_input"
+            android:autofillHints="" />
+
+         <Button
+             android:id="@+id/button_search"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="16dp"
+             android:layout_marginStart="20dp"
+             android:layout_marginEnd="20dp"
+             android:layout_marginBottom="10dp"
+             android:background="@color/colorAccent"
+             android:fontFamily="@font/manrope_light"
+             android:text="@string/find_my_representatives_text"
+             android:textColor="@color/white"
+             android:textStyle="bold"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@id/button_location"
+             motion:layout_editor_absoluteX="20dp" />
+
+         <Button
+             android:id="@+id/button_location"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="20dp"
+             android:layout_marginTop="8dp"
+             android:layout_marginEnd="20dp"
+             android:background="@color/colorPrimaryDark"
+             android:fontFamily="@font/manrope_light"
+             android:text="@string/use_my_location_text"
+             android:textColor="@color/white"
+             android:textStyle="bold"
+             app:layout_constraintTop_toBottomOf="@id/zipcode_input"
+ />
+     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:id="@+id/my_representatives"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/manrope_light"
+            android:paddingBottom="5dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textColor="@color/colorAccent"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_section" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/representative_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:dataRepresentative="@{viewModel.representatives}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/my_representatives" />
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

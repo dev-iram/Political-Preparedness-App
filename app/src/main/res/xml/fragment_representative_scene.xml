@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetStart="@+id/start"
+        app:constraintSetEnd="@+id/end"
+        app:duration="3000">
+        <OnSwipe app:touchAnchorId="@id/representative_recycle"/>
+    </Transition>
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@id/input_section"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <Constraint
+            android:id="@id/my_representatives"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_representatives_header_text"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="84dp"
+            android:layout_marginStart="84dp"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <Constraint
+            android:id="@id/representative_recycle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/my_representatives"
+            />
+        <Constraint
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/input_section"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/my_representatives"
+            app:layout_constraintBottom_toTopOf="@+id/representative_recycle" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/input_section"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <Constraint
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/input_section"
+            android:id="@+id/my_representatives"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </ConstraintSet>
+</MotionScene>

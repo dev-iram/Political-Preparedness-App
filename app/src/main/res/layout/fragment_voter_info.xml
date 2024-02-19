@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.android.politicalpreparedness.election.VoterInfoViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.android.politicalpreparedness.MainActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/election_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/default_padding"
+            android:singleLine="true"
+            android:fontFamily="@font/manrope_light"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@{viewModel.electionData.name}"
+            app:titleTextColor="@color/white"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/election_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_padding"
+            android:fontFamily="@font/manrope_light"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            app:bindElectionDate="@{viewModel.electionData.electionDay}"
+            app:layout_constraintBottom_toTopOf="@+id/voting_location"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/election_information"
+            app:layout_constraintVertical_bias="0.413"
+            tools:text="Tuesday, 17 February 2024 - 12:23 GMT" />
+
+        <TextView
+            android:id="@+id/election_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/manrope_light"
+            android:text="@string/election_info"
+            android:textColor="@color/colorAccent"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/election_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/election_name" />
+
+        <Button
+            android:id="@+id/voting_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/colorAccent"
+            android:clickable="true"
+            android:fontFamily="@font/manrope_light"
+            android:padding="10dp"
+            android:text="@string/voting_location"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/election_date"
+            app:link="@{viewModel.votingLocationLink}" />
+
+        <Button
+            android:id="@+id/ballot_information"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/colorPrimaryDark"
+            android:clickable="true"
+            android:fontFamily="@font/manrope_light"
+            android:padding="10dp"
+            android:text="@string/ballot_information"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/follow_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/voting_location"
+            app:layout_constraintVertical_bias="0.0"
+            app:link="@{viewModel.ballotInfoLink}" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/address_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="state_correspondence_header,address" />
+
+        <TextView
+            android:id="@+id/state_correspondence_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ballot_information"
+            app:layout_constraintStart_toStartOf="@id/election_date" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="2dp"
+            android:layout_height="14dp"
+            app:layout_constraintStart_toStartOf="@id/election_date"
+            app:layout_constraintTop_toBottomOf="@id/state_correspondence_header" />
+
+        <Button
+            android:id="@+id/follow_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/colorAccent"
+            android:fontFamily="@font/manrope_light"
+            app:bindTextButton="@{viewModel.isFollow}"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.android.politicalpreparedness.election.ElectionsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        tools:context="com.example.android.politicalpreparedness.MainActivity">
+
+        <TextView
+            android:id="@+id/upcoming_elections_header"
+            android:layout_width="0dp"
+            android:layout_height="?actionBarSize"
+            android:gravity="center"
+            android:paddingStart="@dimen/default_padding"
+            android:paddingEnd="@dimen/default_padding"
+            android:singleLine="true"
+            android:text="@string/upcoming_elections_header_text"
+            android:fontFamily="@font/manrope_light"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/upcoming_elections_recycler"
+            android:background="@color/white"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/manrope_light"
+            app:dataElection="@{viewModel.upcomingElections}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/Guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upcoming_elections_header" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/Guideline"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.70" />
+
+        <TextView
+            android:id="@+id/save_elections_header"
+            android:layout_width="0dp"
+            android:layout_height="?actionBarSize"
+            android:gravity="center"
+            android:paddingStart="@dimen/default_padding"
+            android:paddingEnd="@dimen/default_padding"
+            android:fontFamily="@font/manrope_light"
+            android:textSize="20sp"
+            android:singleLine="true"
+            android:textStyle="bold"
+            android:text="@string/saved_elections_header_text"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Guideline" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/saved_elections_recycler"
+            android:background="@color/white"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            app:dataElection="@{viewModel.myAllElection}"
+            android:fontFamily="@font/manrope_light"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/save_elections_header" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
