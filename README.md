@@ -20,6 +20,10 @@ Allows for Users to search Upcoming Elections and Representatives based on their
 
 
 
+
+
+
+
 ## Application Logo
  <div align="center">
   <image src="https://github.com/dev-iram/Political-Preparedness-App/assets/22479692/075d062e-3961-4d79-a104-94b685d56225" width="400" />
@@ -27,7 +31,7 @@ Allows for Users to search Upcoming Elections and Representatives based on their
 
 ## Application Demo
  <div align="center">
-  <video src="" width="400" />
+  <video src="https://github.com/dev-iram/Political-Preparedness-App/assets/22479692/d7295c42-1c80-4af2-8635-d9b5b9b29d11" width="400" />
 </div>
 
  ## Assignment Brief
