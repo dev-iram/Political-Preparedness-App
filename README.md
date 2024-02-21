@@ -44,10 +44,14 @@ Users will be able to save predefined locations for quick access and mark prefer
 
 ## Submission Feedback 
 
-## 1st Submission  - Passed✅
+## 1st Submission  - Passed ✅
 ### 21st February 2024
 ```
+Congrats! Your hard work has paid off!
 
+You made all the required changes pointed out in the previous review and are now ready to move on to the next stage!
+
+Keep up the good work as you continue your Nanodegree journey! Safe journey and bon voyage! 😄
 ```
 
 
