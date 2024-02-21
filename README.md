@@ -11,9 +11,12 @@ Allows for Users to search Upcoming Elections and Representatives based on their
   ✦ Software Tools;  
   &nbsp;&nbsp;&nbsp;&nbsp;✧ Android Studio: IDE Used to create, compile and build application
 
-  * NOTE: In order for this project to pull data, you will need to add your API Key to the project as a value in the CivicsHttpClient. You can generate an API Key from the [Google Developers Console](https://console.developers.google.com/)
+**NOTE:** In order for this project to pull data, you will need to add your API Key to the project as a value in the CivicsHttpClient. You can generate an API Key from the [Google Developers Console](https://console.developers.google.com/)
   
 ## Application Screenshots
+
+![politic](https://github.com/dev-iram/Political-Preparedness-App/assets/22479692/69a8f519-552d-4560-b506-b4b7bc95de32)
+![politic1](https://github.com/dev-iram/Political-Preparedness-App/assets/22479692/e74019ed-e3d2-4618-96c1-86e0b57793ce)
 
 
 
